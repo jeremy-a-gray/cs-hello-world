@@ -1,0 +1,28 @@
+# ******************************************************************************
+#
+# cs-hello-world, python hello world project
+#
+# Copyright 2024 Jeremy A Gray <grayj2@wcslive.com>.
+#
+# All rights reserved.
+#
+# ******************************************************************************
+
+# Emacs.
+*~
+.dir-locals.el
+
+# Python.
+*.egg-info
+*.pyc
+.coverage
+.hypothesis
+.pytest_cache
+.python-version
+.tox
+.venv
+__pycache__
+build
+dist
+docs/_build
+htmlcov

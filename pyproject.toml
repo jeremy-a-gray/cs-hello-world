@@ -1,0 +1,127 @@
+# ******************************************************************************
+#
+# cs-hello-world, python hello world project
+#
+# Copyright 2024 Jeremy A Gray <grayj2@wcslive.com>.
+#
+# All rights reserved.
+#
+# ******************************************************************************
+
+[tool]
+
+[tool.bandit.assert_used]
+
+exclude_dirs = [
+  ".git",
+  ".pytest_cache",
+  ".tox",
+  ".venv",
+  "dist",
+  "docs",
+  "htmlcov",
+  "tests",
+]
+
+skips = [
+  "**/test_*.py",
+]
+
+[tool.black]
+
+line-length = 88
+include = '\.pyi?$'
+exclude = '''
+
+(
+  /(
+    \.git
+    | \.pytest_cache
+    | __pycache__
+    | htmlcov
+  )/
+)
+'''
+
+[tool.isort]
+
+ensure_newline_before_comments = true
+force_single_line = true
+include_trailing_comma = true
+line_length = 88
+multi_line_output = 3
+use_parentheses = true
+
+[tool.pccc]
+
+header_length = 50
+body_length = 72
+wrap = true
+force_wrap = true
+spell_check = false
+repair = false
+ignore_generated_commits = true
+
+generated_commits = [
+  '''^\(tag:\s+v\d+\.\d+\.\d\)\s+\d+\.\d+\.\d+$''',
+  '''^Merge branch 'master' of.*$''',
+]
+
+types = [
+  "depends",
+  "docs",
+  "feat",
+  "fix",
+  "perf",
+  "refactor",
+  "release",
+  "style",
+  "test",
+]
+
+scopes = [
+  "hello",
+  "tooling",
+]
+
+footers = [
+  "github-closes",
+  "signed-off-by",
+]
+
+required_footers = [
+  "signed-off-by",
+]
+
+[tool.poetry]
+
+authors = ["Jeremy A Gray <grayj2@wcslive.com>"]
+description = "python hello world project"
+name = "cs-hello-world"
+version = "0.0.1"
+maintainers = ["Jeremy A Gray <grayj2@wcslive.com>"]
+homepage = "https://github.com/jeremy-a-gray/cs-hello-world"
+repository = "https://github.com/jeremy-a-gray/cs-hello-world"
+
+[tool.poetry.scripts]
+
+hello = "hello:main"
+
+[tool.poetry.dependencies]
+
+python = ">=3.10.1,<4.0"
+
+[tool.poetry.group.dev.dependencies]
+
+black = ">=24"
+flake8 = ">=7"
+flake8-docstrings = ">=1"
+isort = ">=5"
+pccc = ">=0"
+pre-commit = ">=3"
+pydocstyle = ">=6"
+pytest = ">=8"
+
+[tool.pytest.ini_options]
+
+pythonpath = "hello"
