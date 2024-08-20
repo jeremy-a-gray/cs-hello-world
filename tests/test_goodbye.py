@@ -10,12 +10,19 @@
 
 """Goodbye tests."""
 
-# import pytest
-
 import hello
 
 
-def test_prints_goodbye_world(capsys):
+def test_goodbye_world_prints_goodbye_world(capsys):
+    """Should print 'Goodbye, world!'"""
+    hello.goodbye_world()
+    actual = capsys.readouterr().out.strip()
+    expected = "Goodbye, world!"
+
+    assert actual == expected
+
+
+def test_goodbye_prints_goodbye_world(capsys):
     """Should print 'Goodbye, world!'"""
     hello.goodbye()
     actual = capsys.readouterr().out.strip()
@@ -24,41 +31,37 @@ def test_prints_goodbye_world(capsys):
     assert actual == expected
 
 
-# @pytest.mark.parametrize(
-#     "msg",
-#     [
-#         "Mercury",
-#         "Venus",
-#         "Earth",
-#         "Mars",
-#         "Jupiter",
-#         "Saturn",
-#         "Uranus",
-#         "Neptune",
-#     ],
-# )
-# def test_prints_goodbye_planets(msg, capsys):
-#     """Should goodbye the planets."""
-#     hello.goodbye(msg)
-#     actual = capsys.readouterr().out.strip()
-#     expected = msg
+def test_prints_goodbye_larry(capsys):
+    """Should goodbye Larry."""
+    hello.goodbye("Larry")
+    actual = capsys.readouterr().out.strip()
+    expected = "Goodbye, Larry!"
 
-#     assert actual == expected
+    assert actual == expected
 
 
-# @pytest.mark.parametrize(
-#     "msg",
-#     [
-#         "Larry",
-#         "Moe",
-#         "Curly",
-#         "Shemp",
-#     ],
-# )
-# def test_prints_goodbye_stooges(msg, capsys):
-#     """Should goodbye the stooges."""
-#     hello.goodbye(msg)
-#     actual = capsys.readouterr().out.strip()
-#     expected = msg
+def test_prints_goodbye_moe(capsys):
+    """Should goodbye Moe."""
+    hello.goodbye("Moe")
+    actual = capsys.readouterr().out.strip()
+    expected = "Goodbye, Moe!"
 
-#     assert actual == expected
+    assert actual == expected
+
+
+def test_prints_goodbye_curly(capsys):
+    """Should goodbye Curly."""
+    hello.goodbye("Curly")
+    actual = capsys.readouterr().out.strip()
+    expected = "Goodbye, Curly!"
+
+    assert actual == expected
+
+
+def test_prints_goodbye_shemp(capsys):
+    """Should goodbye Shemp."""
+    hello.goodbye("Shemp")
+    actual = capsys.readouterr().out.strip()
+    expected = "Goodbye, Shemp!"
+
+    assert actual == expected
