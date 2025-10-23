@@ -2,7 +2,7 @@
 #
 # cs-hello-world, python hello world project
 #
-# Copyright 2024 Jeremy A Gray <grayj2@wcslive.com>.
+# Copyright 2024-2025 Jeremy A Gray <grayj2@wcslive.com>.
 #
 # All rights reserved.
 #
@@ -11,47 +11,28 @@
 ---
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: check-added-large-files
       - id: check-ast
+      - id: check-case-conflict
       - id: check-json
+      - id: check-merge-conflict
       - id: check-toml
       - id: check-xml
       - id: check-yaml
       - id: detect-private-key
       - id: end-of-file-fixer
+      - id: fix-byte-order-marker
       - id: trailing-whitespace
 
-  - repo: https://github.com/psf/black
-    rev: 24.10.0
+  - repo: https://github.com/PyCQA/doc8
+    rev: v2.0.0
     hooks:
-      - id: black
-        language_version: python3
+      - id: doc8
 
-  - repo: https://github.com/pycqa/flake8
-    rev: 7.1.1
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.14.2
     hooks:
-      - id: flake8
-
-  - repo: https://github.com/pycqa/isort
-    rev: 5.13.2
-    hooks:
-      - id: isort
-
-  - repo: https://github.com/pycqa/pydocstyle
-    rev: 6.3.0
-    hooks:
-      - id: pydocstyle
-
-  - repo: https://github.com/pycqa/bandit
-    rev: 1.8.2
-    hooks:
-      - id: bandit
-        args: ["--config", "pyproject.toml"]
-        additional_dependencies: [ "bandit[toml]" ]
-
-  - repo: https://github.com/asottile/yesqa
-    rev: v1.5.0
-    hooks:
-      - id: yesqa
+      - id: ruff-check
+      - id: ruff-format
