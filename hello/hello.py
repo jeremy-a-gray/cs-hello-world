@@ -2,7 +2,7 @@
 #
 # cs-hello-world, python hello world project
 #
-# Copyright 2024 Jeremy A Gray <grayj2@wcslive.com>.
+# Copyright 2024-2026 Jeremy A Gray <grayj2@wcslive.com>.
 #
 # All rights reserved.
 #
@@ -34,6 +34,7 @@ def hello_world():
     Returns
     -------
         ``None``.
+
     """
     # The information above is the documentation for this function.
     # The format used above allows software that generates
@@ -80,6 +81,7 @@ def hello(entity=...):
     Returns
     -------
         ``None``.
+
     """
     print("Hello, " + ... + "!")
 
@@ -101,6 +103,7 @@ def goodbye(entity=...):
 def main():
     """Run the program."""
     hello_world()
+    return 0
 
 
 # This construct is used so that this file may work as a program or as

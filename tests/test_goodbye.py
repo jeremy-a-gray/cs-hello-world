@@ -2,7 +2,7 @@
 #
 # cs-hello-world, python hello world project
 #
-# Copyright 2024 Jeremy A Gray <grayj2@wcslive.com>.
+# Copyright 2024-2026 Jeremy A Gray <grayj2@wcslive.com>.
 #
 # All rights reserved.
 #
@@ -14,7 +14,7 @@ import hello
 
 
 def test_goodbye_world_prints_goodbye_world(capsys):
-    """Should print 'Goodbye, world!'"""
+    """Should print 'Goodbye, world!' successfully."""
     hello.goodbye_world()
     actual = capsys.readouterr().out.strip()
     expected = "Goodbye, world!"
@@ -23,7 +23,7 @@ def test_goodbye_world_prints_goodbye_world(capsys):
 
 
 def test_goodbye_prints_goodbye_world(capsys):
-    """Should print 'Goodbye, world!'"""
+    """Should print 'Goodbye, world!' successfully."""
     hello.goodbye()
     actual = capsys.readouterr().out.strip()
     expected = "Goodbye, world!"

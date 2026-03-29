@@ -2,7 +2,7 @@
 #
 # cs-hello-world, python hello world project
 #
-# Copyright 2024 Jeremy A Gray <grayj2@wcslive.com>.
+# Copyright 2024-2026 Jeremy A Gray <grayj2@wcslive.com>.
 #
 # All rights reserved.
 #
@@ -10,47 +10,13 @@
 
 [tool]
 
-[tool.bandit.assert_used]
+[tool.doc8]
 
-exclude_dirs = [
-  ".git",
-  ".pytest_cache",
+ignore-path = [
   ".tox",
   ".venv",
-  "dist",
-  "docs",
-  "htmlcov",
-  "tests",
+  "*.egg-info",
 ]
-
-skips = [
-  "**/test_*.py",
-]
-
-[tool.black]
-
-line-length = 88
-include = '\.pyi?$'
-exclude = '''
-
-(
-  /(
-    \.git
-    | \.pytest_cache
-    | __pycache__
-    | htmlcov
-  )/
-)
-'''
-
-[tool.isort]
-
-ensure_newline_before_comments = true
-force_single_line = true
-include_trailing_comma = true
-line_length = 88
-multi_line_output = 3
-use_parentheses = true
 
 [tool.pccc]
 
@@ -103,25 +69,47 @@ maintainers = ["Jeremy A Gray <grayj2@wcslive.com>"]
 homepage = "https://github.com/jeremy-a-gray/cs-hello-world"
 repository = "https://github.com/jeremy-a-gray/cs-hello-world"
 
+packages = [
+  { include = "hello" },
+]
+
 [tool.poetry.scripts]
 
 hello = "hello:main"
 
 [tool.poetry.dependencies]
 
-python = ">=3.10.1,<4.0"
+python = ">=3.12.1,<4.0"
 
 [tool.poetry.group.dev.dependencies]
 
-black = ">=24"
-flake8 = ">=7"
-flake8-docstrings = ">=1"
-isort = ">=5"
+doc8 = ">=2"
 pccc = ">=0"
 pre-commit = ">=3"
-pydocstyle = ">=6"
 pytest = ">=8"
+ruff = ">=0"
 
 [tool.pytest.ini_options]
 
-pythonpath = "hello"
+[tool.ruff.lint]
+
+select = [
+  "B",
+  "C90",
+  "D",
+  "E",
+  "F",
+  "RUF",
+  "S",
+  "W",
+]
+
+ignore = [
+  "D203",
+  "D213",
+]
+
+[tool.ruff.lint.per-file-ignores]
+
+"__init__.py" = [ "F401" ]
+"tests/test_*.py" = [ "S101", "S311" ]
